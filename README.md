@@ -74,12 +74,38 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 - A new page will open, Click **Security** tab
 - New page will open, Click **Add SSH Key"" button which is located on the right side of the page 
  
-     ![hi](2420_assignment_1\Image 3.png "Image")
+- ![hi](2420_assignment_1\Image 3.png "Image")
 - In the **SSH Key Content** box use paste your **Public SSH Key**, give it a name of your choice. Good practice is to name your keys as something that you will remeber, for example
 - **"[MyProject]"** of course use the name of your project.
 - If everything went well you should have result similar to the image below.
 - If you are facing any issues, you may start the process all over again starting form the first step, that should fix the problem.
 
-**Step 4
+*Please note that before contiuing to the nexe Step 4, you have to ensure that you finish the previous steps in this guide*
+**Step 4: Create a Project in your Digital Ocean account
+1.Click **New Project** in the menu located on the left side of your screen.
+2.Provide **Name** to your project
+3.Select a **Purpose** of your project
+4.Click **Create Project**
+
+*Your Project should apper in the top left side menu, uner the dropdown menu __PROJECTS__* 
+
+**Step 5: Create a new droplet**
+
+Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quick and straightforward process.
+#
+1.Click **Create** button in the top right corner,
+2.Click **Droplets** in the dropdown menu
+3.Choose  **Region**  that is geographically closest to you if you actual location is not offred in the region options
+4.Select **Custom image** in the Choose an image section, and click **Add Image**, and upload the Arch lInux image that you have ppreviously downloaded.
+5.Select **Biling Plan** that fits your need
+6.Select Authentication method **SSH Key**
+7.Review additional options offered by Digital Ocean, and choose accordigin to your needs, please note that all those sections are **Optional**
+8.Click **Create Droplet** located in the bottom right corner.
+
+*Check if everything went well, Click "[Your actual project name]" located in the top left corner under the dropdown menu __Projects__. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
+##### Image of the droplet screenshot 5
+
+
+
 
 ## 
