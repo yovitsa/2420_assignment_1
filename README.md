@@ -82,10 +82,10 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 
 *Please note that before contiuing to the nexe Step 4, you have to ensure that you finish the previous steps in this guide*
 **Step 4: Create a Project in your Digital Ocean account
-1.Click **New Project** in the menu located on the left side of your screen.
-2.Provide **Name** to your project
-3.Select a **Purpose** of your project
-4.Click **Create Project**
+- 1.Click **New Project** in the menu located on the left side of your screen.
+- 2.Provide **Name** to your project
+- 3.Select a **Purpose** of your project
+- 4.Click **Create Project**
 
 *Your Project should apper in the top left side menu, uner the dropdown menu __PROJECTS__* 
 
@@ -93,14 +93,14 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 
 Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quick and straightforward process.
 #
--1.Click **Create** button in the top right corner,
--2.Click **Droplets** in the dropdown menu
--3.Choose  **Region**  that is geographically closest to you if you actual location is not offred in the region options
--4.Select **Custom image** in the Choose an image section, and click **Add Image**, and upload the Arch lInux image that you have ppreviously downloaded.
--5.Select **Biling Plan** that fits your need
--6.Select Authentication method **SSH Key**
--7.Review additional options offered by Digital Ocean, and choose accordigin to your needs, please note that all those sections are **Optional**
--8.Click **Create Droplet** located in the bottom right corner.
+- 1.Click **Create** button in the top right corner,
+- 2.Click **Droplets** in the dropdown menu
+- 3.Choose  **Region**  that is geographically closest to you if you actual location is not offred in the region options
+- 4.Select **Custom image** in the Choose an image section, and click **Add Image**, and upload the Arch lInux image that you have ppreviously downloaded.
+- 5.Select **Biling Plan** that fits your need
+- 6.Select Authentication method **SSH Key**
+- 7.Review additional options offered by Digital Ocean, and choose accordigin to your needs, please note that all those sections are **Optional**
+- 8.Click **Create Droplet** located in the bottom right corner.
 
 *Check if everything went well, Click "[Your actual project name]" located in the top left corner under the dropdown menu __Projects__. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
 ##### Image of the droplet screenshot 5
