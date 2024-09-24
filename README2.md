@@ -2,7 +2,7 @@
 ###### Student Name: Jovica Kuzmanovic
 ###### Student ID: A01339297
 #
-#
+# This is for 85%
 #
 # Work in progess 
 
@@ -106,42 +106,6 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 *Check if everything went well, Click "[Your actual project name]" located in the top left corner under the dropdown menu __Projects__. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
 ##### Image of the droplet screenshot 5
 
-##### Step 5 Create a new droplet
-
-In order to create a new drolet we will need to install doctl on our machines,
-
-#### What is doctl?
-doctl (pronounced “dock-tul”, and short for “DigitalOcean Control”) is the official command-line interface for the DigitalOcean API.
-#### What you can do with doctl?
-
-doctl allows you to interact with your DigitalOcean resources from the command line of your local computer. Almost any action you can perform in the DigitalOcean Control Panel you can perform using doctl, such as creating and destroying Droplets, assigning reserved IP addresses, and updating cloud firewall settings. 
-
-#### How to Install and Configure doctl
-##### Step 1:Install doctl
-Depending on your OS, you can follwo the guide below"
-#### Installing doctl on **Windows**
-1. Open **Power Shell**
-2. Run the command below to download the most recent version of doctl:
-
-
-    
-       Invoke-WebRequest https://github.com/digitalocean/doctl/releases/download/v1.110.0/doctl-1 .110.0-windows-amd64.zip -OutFile ~\doctl-1.110.0-windows-amd64.zip
-       
-3. Next, extract th ebinary by running:
-    
-       Expand-Archive -Path ~\doctl-1.110.0-windows-amd64.zip
-4. Open your **POwerShell** terminal with **Run as Adminstartor**, move the doctl binary into a dedicated directory and add it to your syste, path by running the following command:
-
-       -New-Item -ItemType Directory $env:ProgramFiles\doctl\
-       Move-Item -Path ~\doctl-1.110.0-windows-amd64\doctl.exe -Destination $env:ProgramFiles\doctl\
-       [Environment]::SetEnvironmentVariable(
-            "Path",
-       [Environment]::GetEnvironmentVariable("Path",
-       [EnvironmentVariableTarget]::Machine) + ";$env:ProgramFiles\doctl\",
-       [EnvironmentVariableTarget]::Machine)
-       $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
-       
-#### INstalling Doctl
 
 
 
