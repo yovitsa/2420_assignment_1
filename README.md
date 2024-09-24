@@ -248,13 +248,13 @@ Run the following command in order to get the list of images:
     doctl compute image list
 
 You will see a list similar to image below:
-## image 6 
+![Output result](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/image%206.png "Image")
 Step 1:Image ID:
 
 AS you may notice the Arch Linux image does not have an im age Slug, 
 In order to install Arch LInnux we will us the Arch Linux ID which you may find on the image below located in **red** swqaure
 
-### image 7
+![Output result](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/image%20%207.png "Image")
 
 Step 2: Upload Your Custom Image by running the command below:
         
