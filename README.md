@@ -141,7 +141,105 @@ Depending on your OS, you can follwo the guide below"
        [EnvironmentVariableTarget]::Machine)
        $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
        
-#### INstalling Doctl
+#### Step 2: Create an API token
+  [Create a DigitalOcean API token](https://docs.digitalocean.com/reference/api/create-personal-access-token/ ) for your account with read and write access from the Applications & API page in the control panel. The token string is only displayed once, so save it in a safe place.
+
+#### Step 3: Use the API token to grant account access to doctl
+ Note
+If you installed doctl using the Ubuntu Snap package, you may need to first create the user configuration directory if it does not exist yet by running mkdir ~/.config.
+Use the API token to grant doctl access to your DigitalOcean account. Pass in the token string when prompted by doctl auth init, and give this authentication context a name.
+
+    doctl auth init --context <NAME>
+
+Authentication contexts let you switch between multiple authenticated accounts. You can repeat steps 2 and 3 to add other DigitalOcean accounts, then list and switch between authentication contexts:
+
+      doctl auth list
+      doctl auth switch --context <NAME>
+
+Step 4: Validate that doctl is working
+Now that doctl is authorized to use your account, try some test commands.
+
+To confirm that you have successfully authorized doctl, review your account details by running:
+
+     doctl account get
+
+If successful, the output looks like:
+
+    Email                      Droplet Limit    Email Verified    UUID                                        Status
+    sammy@example.org          10               true              3a56c5e109736b50e823eaebca85708ca0e5087c    active
+
+To confirm that you have successfully granted write access to doctl, create an Ubuntu 23.10 Droplet in the SFO2 region by running:
+
+    doctl compute droplet create --region sfo2 --image ubuntu-23-10-x64 --size s-1vcpu-1gb <DROPLET-NAME>
+
+You can get a full list of available Droplet images by running doctl compute image list. The output of that command includes an ID column with the new Droplet’s ID. For example:
+
+    ID           Name            Public IPv4    Private IPv4    Public IPv6    Memory    VCPUs    Disk    Region    Image                       Status    Tags    Features    Volumes
+    187949338    droplet-name    1024      1        25      sfo2      Ubuntu 18.04.3 (LTS) x64  new
+
+Use that value to delete the Droplet by running:
+
+    doctl compute droplet delete <DROPLET-ID>
+
+When prompted, type **y** to confirm that you would like to delete the Droplet.
+       
+#### Installing doctl on Linux and MacOS
+Visit the [Releases page](https://github.com/digitalocean/doctl/releases "Releases page"). for the doctl GitHub project and find the appropriate archive for your operating system and architecture. Download the archive from your browser or copy its URL and retrieve it to your home directory with wget.
+
+For example, to download the most recent version of doctl for Linux with wget, run:
+
+     cd ~
+     wget https://github.com/digitalocean/doctl/releases/download/v1.110.0/doctl-1.110.0-linux-amd64.tar.gz
+
+Next, extract the binary. For example, to do so using tar, run:
+
+     tar xf ~/doctl-1.110.0-linux-amd64.tar.gz
+
+Finally, move the doctl binary into your path by running:
+
+    sudo mv ~/doctl /usr/local/bin
+ 
+Step 2: Create an API token
+[Create a DigitalOcean API token](https://docs.digitalocean.com/reference/api/create-personal-access-token/ ) for your account with read and write access from the Applications & API page in the control panel. The token string is only displayed once, so save it in a safe place.
+
+Step 3: Use the API token to grant account access to doctl
+Note
+If you installed doctl using the Ubuntu Snap package, you may need to first create the user configuration directory if it does not exist yet by running 
+        mkdir ~/.config.
+Use the API token to grant doctl access to your DigitalOcean account. Pass in the token string when prompted by doctl auth init, and give this authentication context a name.
+
+        doctl auth init --context <NAME>
+
+Authentication contexts let you switch between multiple authenticated accounts. You can repeat steps 2 and 3 to add other DigitalOcean accounts, then list and switch between authentication contexts:
+
+        doctl auth list
+        doctl auth switch --context <NAME>
+
+Step 4: Validate that doctl is working
+Now that doctl is authorized to use your account, try some test commands.
+
+To confirm that you have successfully authorized doctl, review your account details by running:
+
+        doctl account get
+
+If successful, the output looks like:
+
+     Email                      Droplet Limit    Email Verified    UUID                    Status sammy@example.org              10           true          3a56c5e109736b50e823eaebca  active     
+Copy
+To confirm that you have successfully granted write access to doctl, create an Ubuntu 23.10 Droplet in the SFO2 region by running:
+
+        doctl compute droplet create --region sfo2 --image ubuntu-23-10-x64 --size s-1vcpu-1gb <DROPLET-NAME>
+
+You can get a full list of available Droplet images by running doctl compute image list. The output of that command includes an ID column with the new Droplet’s ID. For example:
+
+    ID           Name            Public IPv4    Private IPv4    Public IPv6    Memory    VCPUs    Disk    Region    Image                       Status    Tags    Features    Volumes
+    187949338    droplet-name                                                  1024      1        25      sfo2      Ubuntu 18.04.3 (LTS) x64    new
+
+Use that value to delete the Droplet by running:
+
+    doctl compute droplet delete <DROPLET-ID>
+
+When prompted, type **y** to confirm that you would like to delete the Droplet.
 
 
 
