@@ -241,7 +241,6 @@ Use that value to delete the Droplet by running:
 
 When prompted, type **y** to confirm that you would like to delete the Droplet.
 
-
 ### Creating a droplet with  Arch linux OS using doctl
 We will create a our custom image droplet with Arch Linux OS.
 Run the following command in order to get the list of images:
@@ -281,7 +280,7 @@ Run the command:
 Your output should be similar to this one:
 ###image 8
 
-![Output result](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%203.png "Image")
+![Output result](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/image%208.png "Image")
 
 
 ## 
