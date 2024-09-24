@@ -242,5 +242,46 @@ Use that value to delete the Droplet by running:
 When prompted, type **y** to confirm that you would like to delete the Droplet.
 
 
+### Creating a droplet with  Arch linux OS using doctl
+We will create a our custom image droplet with Arch Linux OS.
+Run the following command in order to get the list of images:
+        
+    doctl compute image list
+
+You will see a list similar to image below:
+## image 6 
+Step 1:Image ID:
+
+AS you may notice the Arch Linux image does not have an im age Slug, 
+In order to install Arch LInnux we will us the Arch Linux ID which you may find on the image below located in **red** swqaure
+
+### image 7
+
+Step 2: Upload Your Custom Image by running the command below:
+        
+        doctl compute image create --image-url <URL_OF>YOUR>IMAGE> --region <YOUR_REGION>
+
+Replace <URL_OF_YOUR_IMAGE> with URL where Arch LInux is hosted. You can find it here [Arch Linux Image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/package_files/7529/download)
+
+Step 3: Create the Droplet:
+Run the command below to create a droplet, replace your image ID with the ID from step one.
+
+        doctl compute droplet create <DROPLET NAME> --region <YOUR_REGION> --image <IMAGE_ID> --size <DROPLET_SIZE> --ssh-keys <YOUR_SSH_KEYS>
+        
+Replace <DROPLET NAME>, <YOUR_REGION>, <IMAGE_ID>, <DROPLET_SIZE>, <YOUR_SSH_KEYS>, with your desired values.
+
+Here is an example of the command:
+    
+      doctl compute droplet create Arch --region sfo3 --image 165064171 --size s-1vcpu-1gb --ssh-keys 1234567891234569
+      
+Run the command:
+        
+        doctl compute droplet list
+
+Your output should be similar to this one:
+###image 8
+
+![Output result](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%203.png "Image")
+
 
 ## 
