@@ -28,8 +28,9 @@ This guide assume that you already have digital ocean account and that you psses
 - SSH is often used for controlling servers remotely, for managing infrastructure, and for transferring files.
 #
 #### Creating an (SSH) key pair on your local machine
-
+#
 **Step 1: Create an SSH key pair**
+#
 1. Open the Terminal on your machine
 2. If you are using Windows as your OS you may need to create .ssh direcotory in your home directory first
 3. (Tilda) ~ == home directory
@@ -47,9 +48,9 @@ The command above will create a two text files in your .ssh directory
 
 **"do-key"** or **"do2-key"**    This is your private key
 **"do-key.pub"** or **"do2-key"**  This is the public key, this key will be copied to a server.
-      
+#      
 **Step 2: Copying your Public Key**
-
+#
 Our keys are just a plain text files, on order to make sense of those files, we will use our terminal.
 Copying our public key is a straight forward process,  depending on your OS, please **COPY** the command into your terminal.
 
@@ -70,8 +71,9 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 #
        xclip -selection clipboard < ~/.ssh/do-key.pub
 
-    
+#  
 **Step 3: Adding your public key to Digital Ocean**
+#
 1. Click on Settings located on the left side at your home page 
 2. A new page will open, Click **Security** tab
 3. New page will open, Click **Add SSH Key"" button which is located on the right side of the page 
@@ -83,19 +85,20 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 8. If you are facing any issues, you may start the process all over again starting form the first step, that should fix the problem.
 
 *Please note that before contiuing to the nexe Step 4, you have to ensure that you finish the previous steps in this guide*
-
-**Step 4: Create a Project in your Digital Ocean account
- 1.Click **New Project** in the menu located on the left side of your screen.
- 2.Provide **Name** to your project
- 3.Select a **Purpose** of your project
- 4.Click **Create Project**
+#
+**Step 4: Create a Project in your Digital Ocean account**
+#
+ 1. Click **New Project** in the menu located on the left side of your screen.
+ 2. Provide **Name** to your project
+ 3. Select a **Purpose** of your project
+ 4. Click **Create Project**
 
 *Your Project should apper in the top left side menu, uner the dropdown menu __PROJECTS__* 
 #
 **Step 5: Create a new droplet**
-
-Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quick and straightforward process.
 #
+Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quick and straightforward process.
+
 1.Click **Create** button in the top right corner,
 2.Click **Droplets** in the dropdown menu
 3.Choose  **Region**  that is geographically closest to you if you actual location is not offred in the region options
@@ -107,5 +110,23 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 
 *Check if everything went well, Click "[Your actual project name]" located in the top left corner under the dropdown menu __Projects__. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
 ![Droplet Created](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%205.png)
+#
+**Step 6: Create configuration using cloud-init**
+
+Before we createa cloud-init file, we should learn more about cloud-init
+
+#### What is cloud init?
+Cloud-init allows us to setup a server with some initial configuration. In order to configure cloud-init we shoudl create a configuration file.
+One of the better pracitces is to create a YAML file.
+
+#### What is YAML file?
+[YAML](https://yaml.org/) is a human-readable data serialization language often used for configuration files, data storage, and inter-process communication. It's designed to be more readable than JSON and XML.
+
+#### What does cloud-init do?
+Cloud-init can handle a range of tasks that normally happen when a new instance is created. It’s responsible for activities like setting the hostname, configuring network interfaces, creating user accounts, and even running scripts. This streamlines the deployment process; your cloud instances will all be automatically configured in the same way, which reduces the chance to introduce human error.
+
+#### How does cloud-init work?
+The operation of cloud-init broadly takes place in two separate phases during the boot process. The first phase is during the early (local) boot stage, before networking has been enabled. The second is during the late boot stages, after cloud-init has applied the networking configuration.
+
 
 
