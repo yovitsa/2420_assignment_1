@@ -84,17 +84,18 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 7. If everything went well you should have result similar to the image below.
 8. If you are facing any issues, you may start the process all over again starting form the first step, that should fix the problem.
 
-*Please note that before contiuing to the nexe Step 4, you have to ensure that you finish the previous steps in this guide*
+*Please note that before contiuing to the next steps of this guide, you have to ensure that you finish the previous steps in this guide*
 #
-**Step 4: Create a Project in your Digital Ocean account**
+#### Create a Project in your Digital Ocean account**
 #
  1. Click **New Project** in the menu located on the left side of your screen.
  2. Provide **Name** to your project
  3. Select a **Purpose** of your project
  4. Click **Create Project**
 
-*Your Project should apper in the top left side menu, uner the dropdown menu __PROJECTS__* 
+*Your Project should apper in the top left side menu, under the dropdown menu __PROJECTS__* 
 #
+#### Create a cloud-init configuration file
 #
 *Before we create a cloud-init file, we should learn more about cloud-init*
 #
@@ -122,16 +123,20 @@ The operation of cloud-init broadly takes place in two separate phases during th
 4. Copy the example below and paste into your cloud-init configuration file, and make changes as instructed, save yaml file on your machine. 
     
         #cloud-config
-        users:
-        -name: user-name #change me
-        -primary_group: group-name #change me
-        -groups: wheel
-        -shell: /bin/bash
-        -sudo: ['ALL=(ALL) NOPASSWD:ALL']
+        # This cloud-init configuration file defines various settings for your droplet.
+
+        # Defines a new user with the specified username, group, shell, and sudo privileges.
+        users: 
+        -name: user-name # Change this to your desired username
+        -primary_group: group-name # Change this to your desired group name
+        -groups: wheel # Adds the user to the wheel group for sudo privileges
+        -shell: /bin/bash # Sets the user's default shell
+        -sudo: ['ALL=(ALL) NOPASSWD:ALL'] # Grants the user sudo privileges without requiring a password
         -ssh-authorized-keys: #paste here you public ssh key
             - ssh-ed25519 ...
 
         packages:
+         # Specifies a list of packages to be installed on the droplet.
         - ripgrep
         - rsync
         - neovim
@@ -142,7 +147,7 @@ The operation of cloud-init broadly takes place in two separate phases during th
         - tmux
 
         disable_root: true
-
+         # Disables the root user, making it safer to manage the droplet.
 #### Troubleshooting a cloud config file
 
 *If the configuration in your file is not being applied you probably won't see an error message. You can find one in the logs (journalctl -b).
@@ -155,7 +160,9 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 1. Click **Create** button in the top right corner,
 2. Click **Droplets** in the dropdown menu
 3. Choose  **Region**  that is geographically closest to you if you actual location is not offred in the region options
-4. Select **Custom image** in the Choose an image section, and click **Add Image**, and upload the Arch lInux image that you have ppreviously downloaded.
+![Regions](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/regions.png)
+4. Select **Custom image** in the Choose an image section, and click **Add Image**, and upload the Arch Linux image that you have previously downloaded.
+![Custom Image](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/custom.png)
 5. Select **Biling Plan** that fits your need
 6. Select Authentication method **SSH Key**
 7. Click **+ Additional Options**, and Select **Add Inatilaztion cripts**, and **Paste** teh conect in the **Enter your data here** text box
