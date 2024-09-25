@@ -106,9 +106,6 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 ### **Step 2:Create a Project in your Digital Ocean account**
 
  1. Click **New Project** in the menu located on the left side of your screen.
- 
- #
- ![alt text](image.png)
  2. Provide **Name** to your project
  3. Select a **Purpose** of your project
  4. Click **Create Project**
