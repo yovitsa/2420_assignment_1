@@ -47,7 +47,7 @@ References:
 #
 ### Step 1: Creating an (SSH) key pair
 #
-#### ** Create an SSH key pair**
+#### **Create an SSH key pair**
 
 1. Open the Terminal on your machine
 2. If you are using Windows as your OS you may need to create .ssh direcotory in your home directory first
@@ -67,7 +67,7 @@ The command above will create a two text files in your .ssh directory
 **"do-key"** or **"do2-key"**    This is your private key
 **"do-key.pub"** or **"do2-key"**  This is the public key, this key will be copied to a server.
 #      
-#### ** Copying your Public Key**
+#### **Copying your Public Key**
 
 Our keys are just a plain text files, on order to make sense of those files, we will use our terminal.
 Copying our public key is a straight forward process,  depending on your OS, please **COPY** the command into your terminal.
@@ -103,9 +103,10 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 
 *Please note that before contiuing to the next steps of this guide, you have to ensure that you finish the previous steps in this guide*
 #
-### Create a Project in your Digital Ocean account**
+### **Step 2:Create a Project in your Digital Ocean account**
 
  1. Click **New Project** in the menu located on the left side of your screen.
+ ![new project1]()
  2. Provide **Name** to your project
  3. Select a **Purpose** of your project
  4. Click **Create Project**
@@ -114,7 +115,7 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 
 *Your Project should apper in the top left side menu, under the dropdown menu __PROJECTS__* 
 #
-### **cloud-init configuration file**
+### **Cloud-init configuration file**
 #
 *Before we create a cloud-init file, we should learn more about cloud-init*
 
@@ -131,7 +132,10 @@ Cloud-init can handle a range of tasks that normally happen when a new instance 
 #### How does cloud-init work?
 The operation of cloud-init broadly takes place in two separate phases during the boot process. The first phase is during the early (local) boot stage, before networking has been enabled. The second is during the late boot stages, after cloud-init has applied the networking configuration.
 
-#### **Step 2:Create configuration file cloud-init**
+*Now when we understand what is cloud-init and what dows it do, we can continue to our next step*
+#
+
+### **Step 3:Create configuration file cloud-init**
 
 1. Run teh commnad below in order ot confirm that clound-init is running:
 
@@ -172,7 +176,7 @@ The operation of cloud-init broadly takes place in two separate phases during th
 *If the configuration in your file is not being applied you probably won't see an error message. You can find one in the logs (journalctl -b).
 The first place you should look is your YAML file. YAML is picky about white space, you may need to change some settings in your text editor, particularly if you are running Windows as your host machine. You can use [Yaml Validator](https://www.yamllint.com/) to check your yaml file*
 #
-#### **Step 3: Create a new droplet**
+### **Step 4: Create a new droplet**
 
 Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quick and straightforward process.
 
@@ -192,7 +196,7 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 *Check if everything went well, Click "[Your actual project name]" located in the top left corner under the dropdown menu __Projects__. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
 ![Droplet Created](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%205.png)
 
-### **Step 4:Connecting to your droplet via SSH **
+### **Step 5:Connecting to your droplet via SSH **
 
 1. ** Copy ** your dropltes public IP address
 ![IP address](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/ip%20address.png)
