@@ -14,23 +14,25 @@ The guide assume that you already have digital ocean account and that you psses 
 - Access to the Internet
 - Arch linux .qcow image (Download link may be found here: [Arch Linux Image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1545) , Please downloand the **.qcow** which size is approximatley 500MB.
 #
-Concepts:
+Topivs:
 
-SSH: Secure Shell Protocol, used to securely connect to your server.
-Digital Ocean: A cloud computing platform for hosting servers and applications.
-Arch Linux: A lightweight, community-driven Linux distribution.
-Cloud-init: A tool for automating configuration tasks on cloud instances.
+- SSH: Secure Shell Protocol.
+- Digital Ocean
+- Cloud-init
+
 Guide Structure:
 
-Creating an SSH Key Pair: Generate a public and private key pair for secure authentication.
-Creating a Project on Digital Ocean: Set up a project to organize your resources.
-Creating a Cloud-Init Configuration File: Define initial configuration settings for your server.
-Creating a Droplet: Launch a virtual private server (VPS) on Digital Ocean.
+- Creating an SSH Key Pair: Generate a public and private key pair for secure authentication.
+- Creating a Project on Digital Ocean: Set up a project to organize your resources.
+- Creating a Cloud-Init Configuration File: Define initial configuration settings for your server.
+- Creating a Droplet: Launch a virtual private server (VPS) on Digital Ocean.
+- Conneting via ssh to our droplet
+
 References:
 
-Digital Ocean Documentation: https://docs.digitalocean.com/
-Arch Linux Wiki: https://wiki.archlinux.org/
-Cloud-Init Documentation: https://cloudinit.readthedocs.io/
+- Digital Ocean Documentation: https://docs.digitalocean.com/
+- Arch Linux Wiki: https://wiki.archlinux.org/
+- Cloud-Init Documentation: https://cloudinit.readthedocs.io/
 
 #### What is Secure Shell Protocol(SSH)?
 - SSH is a method for securely sending commands to a computer over an unsecured network. The SSH uses cryptography to authenticate and encrypt connections between devices.
