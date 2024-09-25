@@ -5,16 +5,32 @@
 #
 #
 # Work in progess 
-
-This guide assume that you already have digital ocean account and that you psses the basic computer knoweldge, lke for example oipning a terminal on your operating sytem(OS). If you do not psses any of those this guide is not for you
+This guide will walk you through the process of setting up a server on Digital Ocean using Arch Linux. We'll cover everything from creating an SSH key pair to configuring your server with cloud-init.
+The guide assume that you already have digital ocean account and that you psses the basic computer knoweldge,for example opening a terminal on your operating sytem(OS).
+#
 # Requierments
 - Digital Ocean Account
 - A personal computer with an operating system
 - Access to the Internet
 - Arch linux .qcow image (Download link may be found here: [Arch Linux Image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1545) , Please downloand the **.qcow** which size is approximatley 500MB.
 #
+Concepts:
 
-                          
+SSH: Secure Shell Protocol, used to securely connect to your server.
+Digital Ocean: A cloud computing platform for hosting servers and applications.
+Arch Linux: A lightweight, community-driven Linux distribution.
+Cloud-init: A tool for automating configuration tasks on cloud instances.
+Guide Structure:
+
+Creating an SSH Key Pair: Generate a public and private key pair for secure authentication.
+Creating a Project on Digital Ocean: Set up a project to organize your resources.
+Creating a Cloud-Init Configuration File: Define initial configuration settings for your server.
+Creating a Droplet: Launch a virtual private server (VPS) on Digital Ocean.
+References:
+
+Digital Ocean Documentation: https://docs.digitalocean.com/
+Arch Linux Wiki: https://wiki.archlinux.org/
+Cloud-Init Documentation: https://cloudinit.readthedocs.io/
 
 #### What is Secure Shell Protocol(SSH)?
 - SSH is a method for securely sending commands to a computer over an unsecured network. The SSH uses cryptography to authenticate and encrypt connections between devices.
@@ -37,11 +53,11 @@ This guide assume that you already have digital ocean account and that you psses
     
 Create a SSH key pair on **Linux** or **MacOS** type the following command:
         
-         ssh.keygen -t ed25519 -f ~/.ssh/do-key -C "youremail@address"
+    ssh.keygen -t ed25519 -f ~/.ssh/do-key -C "youremail@address"
          
 On **Windows** machine type the following command:
     
-         ssh-keygen -t ed25519 -f C:\Users\your-user-name\.ssh\do-key -C "youremail@email.com"
+    sh-keygen -t ed25519 -f C:\Users\your-user-name\.ssh\do-key -C "youremail@email.com"
 
          
 The command above will create a two text files in your .ssh directory
@@ -57,19 +73,19 @@ Copying our public key is a straight forward process,  depending on your OS, ple
 For **Windows** users:
 
 
-      Get-Content C:\Users\your-user-name\.ssh\do-key.pub | Set-Clipboard
+    Get-Content C:\Users\your-user-name\.ssh\do-key.pub | Set-Clipboard
 
       
 For **MacOS** users:
 
     
-       pbcopy < ~/.ssh/do-key.pub
+    pbcopy < ~/.ssh/do-key.pub
  
 For **Linux**  users it will depend on the type of your distribution, [lease refer to the doucmetation of your distribution, here are some of the popular commands, note that the first command requires **Wayland** text editor:
     
-       wl-copy < ~/.ssh/do-key.pub
-#
-       xclip -selection clipboard < ~/.ssh/do-key.pub
+    wl-copy < ~/.ssh/do-key.pub
+
+    xclip -selection clipboard < ~/.ssh/do-key.pub
 
 #  
 **Step 3: Adding your public key to Digital Ocean**
