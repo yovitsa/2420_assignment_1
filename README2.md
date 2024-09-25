@@ -45,10 +45,10 @@ References:
 #### When do we use SSH?
 - SSH is often used for controlling servers remotely, for managing infrastructure, and for transferring files.
 #
-#### Creating an (SSH) key pair on your local machine
+### Creating an (SSH) key pair
 #
-**Step 1: Create an SSH key pair**
-#
+#### **Step 1: Create an SSH key pair**
+
 1. Open the Terminal on your machine
 2. If you are using Windows as your OS you may need to create .ssh direcotory in your home directory first
 3. (Tilda) ~ == home directory
@@ -67,8 +67,8 @@ The command above will create a two text files in your .ssh directory
 **"do-key"** or **"do2-key"**    This is your private key
 **"do-key.pub"** or **"do2-key"**  This is the public key, this key will be copied to a server.
 #      
-**Step 2: Copying your Public Key**
-#
+#### **Step 2: Copying your Public Key**
+
 Our keys are just a plain text files, on order to make sense of those files, we will use our terminal.
 Copying our public key is a straight forward process,  depending on your OS, please **COPY** the command into your terminal.
 
@@ -90,8 +90,8 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
     xclip -selection clipboard < ~/.ssh/do-key.pub
 
 #  
-**Step 3: Adding your public key to Digital Ocean**
-#
+#### **Step 3: Adding your public key to Digital Ocean**
+
 1. Click on Settings located on the left side at your home page 
 2. A new page will open, Click **Security** tab
 3. New page will open, Click **Add SSH Key"" button which is located on the right side of the page 
@@ -103,19 +103,20 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 
 *Please note that before contiuing to the next steps of this guide, you have to ensure that you finish the previous steps in this guide*
 #
-#### Create a Project in your Digital Ocean account**
-#
+### Create a Project in your Digital Ocean account**
+
  1. Click **New Project** in the menu located on the left side of your screen.
  2. Provide **Name** to your project
  3. Select a **Purpose** of your project
  4. Click **Create Project**
+ ![New Project Image](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/new%20project.png)
 
 *Your Project should apper in the top left side menu, under the dropdown menu __PROJECTS__* 
 #
-#### Create a cloud-init configuration file
+### **cloud-init configuration file**
 #
 *Before we create a cloud-init file, we should learn more about cloud-init*
-#
+
 #### What is cloud init?
 Cloud-init allows us to setup a server with some initial configuration. In order to configure cloud-init we shoudl create a configuration file.
 One of the better pracitces is to create a YAML file.
@@ -129,7 +130,7 @@ Cloud-init can handle a range of tasks that normally happen when a new instance 
 #### How does cloud-init work?
 The operation of cloud-init broadly takes place in two separate phases during the boot process. The first phase is during the early (local) boot stage, before networking has been enabled. The second is during the late boot stages, after cloud-init has applied the networking configuration.
 
-**Step 5: Create configuration file cloud-init**
+#### **Create configuration file cloud-init**
 
 1. Run teh commnad below in order ot confirm that clound-init is running:
 
@@ -170,8 +171,8 @@ The operation of cloud-init broadly takes place in two separate phases during th
 *If the configuration in your file is not being applied you probably won't see an error message. You can find one in the logs (journalctl -b).
 The first place you should look is your YAML file. YAML is picky about white space, you may need to change some settings in your text editor, particularly if you are running Windows as your host machine. You can use [Yaml Validator](https://www.yamllint.com/) to check your yaml file*
 #
-**Step 6: Create a new droplet**
-#
+#### ** Create a new droplet**
+
 Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quick and straightforward process.
 
 1. Click **Create** button in the top right corner,
