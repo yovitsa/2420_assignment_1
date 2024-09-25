@@ -77,12 +77,11 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 1. Click on Settings located on the left side at your home page 
 2. A new page will open, Click **Security** tab
 3. New page will open, Click **Add SSH Key"" button which is located on the right side of the page 
- 
-4. ![hi](2420_assignment_1\Image 3.png "Image")
-5. In the **SSH Key Content** box use paste your **Public SSH Key**, give it a name of your choice. Good practice is to name your keys as something that you will remeber, for example
-6. **"[MyProject]"** of course use the name of your project.
-7. If everything went well you should have result similar to the image below.
-8. If you are facing any issues, you may start the process all over again starting form the first step, that should fix the problem.
+4. In the **SSH Key Content** box use paste your **Public SSH Key**, give it a name of your choice. Good practice is to name your keys as something that you will remeber, for example **"[MyProject]"** of course use the name of your project.
+![SSH](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%203.png)
+5. If everything went well you should have result similar to the image below.
+![SSH creation](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%204.png)
+6. If you are facing any issues, you may start the process all over again starting form the first step, that should fix the problem.
 
 *Please note that before contiuing to the next steps of this guide, you have to ensure that you finish the previous steps in this guide*
 #
