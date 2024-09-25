@@ -95,26 +95,9 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 
 *Your Project should apper in the top left side menu, uner the dropdown menu __PROJECTS__* 
 #
-**Step 5: Create a new droplet**
 #
-Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quick and straightforward process.
-
-1.Click **Create** button in the top right corner,
-2.Click **Droplets** in the dropdown menu
-3.Choose  **Region**  that is geographically closest to you if you actual location is not offred in the region options
-4.Select **Custom image** in the Choose an image section, and click **Add Image**, and upload the Arch lInux image that you have ppreviously downloaded.
-5.Select **Biling Plan** that fits your need
-6.Select Authentication method **SSH Key**
-7.Review additional options offered by Digital Ocean, and choose accordigin to your needs, please note that all those sections are **Optional**
-8.Click **Create Droplet** located in the bottom right corner.
-
-*Check if everything went well, Click "[Your actual project name]" located in the top left corner under the dropdown menu __Projects__. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
-![Droplet Created](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%205.png)
+*Before we create a cloud-init file, we should learn more about cloud-init*
 #
-**Step 6: Create configuration using cloud-init**
-
-Before we createa cloud-init file, we should learn more about cloud-init
-
 #### What is cloud init?
 Cloud-init allows us to setup a server with some initial configuration. In order to configure cloud-init we shoudl create a configuration file.
 One of the better pracitces is to create a YAML file.
@@ -128,5 +111,66 @@ Cloud-init can handle a range of tasks that normally happen when a new instance 
 #### How does cloud-init work?
 The operation of cloud-init broadly takes place in two separate phases during the boot process. The first phase is during the early (local) boot stage, before networking has been enabled. The second is during the late boot stages, after cloud-init has applied the networking configuration.
 
+**Step 6: Create configuration file cloud-init**
 
+1. Run teh commnad below in order ot confirm that clound-init is running:
+
+       systemctl status cloud-init
+2. Create  cloud-init configuration in your .ssh folder. Yamml file needs to have an **.yml** extension
+    **example: cloud-init.yml **
+3. Edit cloud-init file in the text editor of your choice, you may use notepad, Visual Studio Code, or any other program i whihc you can edit text.
+4. Copy the example below and paste into your cloud-init configuration file, and make changes as instructed. 
+    
+        #cloud-config
+        users:
+        -name: user-name #change me
+        -primary_group: group-name #change me
+        -groups: wheel
+        -shell: /bin/bash
+        -sudo: ['ALL=(ALL) NOPASSWD:ALL']
+        -ssh-authorized-keys: #paste here you public ssh key
+            - ssh-ed25519 ...
+
+        packages:
+        - ripgrep
+        - rsync
+        - neovim
+        - fd
+        - less
+        - man-db
+        - bash-completion
+        - tmux
+
+        disable_root: true
+
+#### Troubleshooting a cloud config file
+
+*If the configuration in your file is not being applied you probably won't see an error message. You can find one in the logs (journalctl -b).
+The first place you should look is your YAML file. YAML is picky about white space, you may need to change some settings in your text editor, particularly if you are running Windows as your host machine. You can use [Yaml Validator](https://www.yamllint.com/) to check your yaml file*
+#
+**Step 5: Create a new droplet**
+#
+Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quick and straightforward process.
+
+1.Click **Create** button in the top right corner,
+2.Click **Droplets** in the dropdown menu
+3.Choose  **Region**  that is geographically closest to you if you actual location is not offred in the region options
+4.Select **Custom image** in the Choose an image section, and click **Add Image**, and upload the Arch lInux image that you have ppreviously downloaded.
+5.Select **Biling Plan** that fits your need
+6.Select Authentication method **SSH Key**
+7.Click **+ Additional Options**, and Select **Add Inatilaztion cripts**, and **Paste** teh conect in the **Enter your data here** text box
+[Additional Options](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/a.png)
+8.Paste teh content of your cloud-init.yml file in the data box as the image below
+[text box]()
+7.Review additional options offered by Digital Ocean, and choose accordigin to your needs, please note that all those sections are **Optional**
+8.Click **Create Droplet** located in the bottom right corner.
+
+*Check if everything went well, Click "[Your actual project name]" located in the top left corner under the dropdown menu __Projects__. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
+![Droplet Created](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%205.png)
+
+#
+**Step 7: Adding your cloud configuration to Digital Ocean**
+#
+
+1. Opem teh 
 
