@@ -45,9 +45,9 @@ References:
 #### When do we use SSH?
 - SSH is often used for controlling servers remotely, for managing infrastructure, and for transferring files.
 #
-### Creating an (SSH) key pair
+### Step 1: Creating an (SSH) key pair
 #
-#### **Step 1: Create an SSH key pair**
+#### ** Create an SSH key pair**
 
 1. Open the Terminal on your machine
 2. If you are using Windows as your OS you may need to create .ssh direcotory in your home directory first
@@ -67,7 +67,7 @@ The command above will create a two text files in your .ssh directory
 **"do-key"** or **"do2-key"**    This is your private key
 **"do-key.pub"** or **"do2-key"**  This is the public key, this key will be copied to a server.
 #      
-#### **Step 2: Copying your Public Key**
+#### ** Copying your Public Key**
 
 Our keys are just a plain text files, on order to make sense of those files, we will use our terminal.
 Copying our public key is a straight forward process,  depending on your OS, please **COPY** the command into your terminal.
@@ -90,7 +90,7 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
     xclip -selection clipboard < ~/.ssh/do-key.pub
 
 #  
-#### **Step 3: Adding your public key to Digital Ocean**
+#### **Adding your public key to Digital Ocean**
 
 1. Click on Settings located on the left side at your home page 
 2. A new page will open, Click **Security** tab
@@ -109,6 +109,7 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
  2. Provide **Name** to your project
  3. Select a **Purpose** of your project
  4. Click **Create Project**
+
  ![New Project Image](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/new%20project.png)
 
 *Your Project should apper in the top left side menu, under the dropdown menu __PROJECTS__* 
@@ -130,7 +131,7 @@ Cloud-init can handle a range of tasks that normally happen when a new instance 
 #### How does cloud-init work?
 The operation of cloud-init broadly takes place in two separate phases during the boot process. The first phase is during the early (local) boot stage, before networking has been enabled. The second is during the late boot stages, after cloud-init has applied the networking configuration.
 
-#### **Create configuration file cloud-init**
+#### **Step 2:Create configuration file cloud-init**
 
 1. Run teh commnad below in order ot confirm that clound-init is running:
 
@@ -171,7 +172,7 @@ The operation of cloud-init broadly takes place in two separate phases during th
 *If the configuration in your file is not being applied you probably won't see an error message. You can find one in the logs (journalctl -b).
 The first place you should look is your YAML file. YAML is picky about white space, you may need to change some settings in your text editor, particularly if you are running Windows as your host machine. You can use [Yaml Validator](https://www.yamllint.com/) to check your yaml file*
 #
-#### ** Create a new droplet**
+#### **Step 3: Create a new droplet**
 
 Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quick and straightforward process.
 
@@ -190,6 +191,22 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 
 *Check if everything went well, Click "[Your actual project name]" located in the top left corner under the dropdown menu __Projects__. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
 ![Droplet Created](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%205.png)
+
+### **Step 4:Connecting to your droplet via SSH **
+
+1. ** Copy ** your dropltes public IP address
+![IP address]()
+2. Opem Your terminal
+3. Type the command below, with you respective values
+   
+   ssh username@your public IP address
+4. Press Enter
+5. You wiil get the a following meesage, Type **yes**
+![Yes command]()
+6.Run the follwoing command, replace **username** with your actual username :
+    
+    ssh username
+7.Your termianl shoudl look similar to this one, that is confiramtion that you are connected to your droplet
 
 
 
