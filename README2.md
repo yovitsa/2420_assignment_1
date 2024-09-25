@@ -11,7 +11,7 @@ This guide assume that you already have digital ocean account and that you psses
 - Digital Ocean Account
 - A personal computer with an operating system
 - Access to the Internet
-- Arch linux .qcow image (Download link may be found here: [Arch Linux Image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1545) , Please downloand the **.qcow"" which size is approximatley 500MB.
+- Arch linux .qcow image (Download link may be found here: [Arch Linux Image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1545) , Please downloand the **.qcow** which size is approximatley 500MB.
 #
 
                           
@@ -30,9 +30,9 @@ This guide assume that you already have digital ocean account and that you psses
 #### Creating an (SSH) key pair on your local machine
 
 **Step 1: Create an SSH key pair**
-- Open the Terminal on your machine
-- If you are using Windows as your OS you may need to create .ssh direcotory in your home directory first
-- (Tilda) ~ == home directory
+1. Open the Terminal on your machine
+2. If you are using Windows as your OS you may need to create .ssh direcotory in your home directory first
+3. (Tilda) ~ == home directory
     
 Create a SSH key pair on **Linux** or **MacOS** type the following command:
         
@@ -72,25 +72,26 @@ For **Linux**  users it will depend on the type of your distribution, [lease ref
 
     
 **Step 3: Adding your public key to Digital Ocean**
-- Click on Settings located on the left side at your home page 
-- A new page will open, Click **Security** tab
-- New page will open, Click **Add SSH Key"" button which is located on the right side of the page 
+1. Click on Settings located on the left side at your home page 
+2. A new page will open, Click **Security** tab
+3. New page will open, Click **Add SSH Key"" button which is located on the right side of the page 
  
-- ![hi](2420_assignment_1\Image 3.png "Image")
-- In the **SSH Key Content** box use paste your **Public SSH Key**, give it a name of your choice. Good practice is to name your keys as something that you will remeber, for example
-- **"[MyProject]"** of course use the name of your project.
-- If everything went well you should have result similar to the image below.
-- If you are facing any issues, you may start the process all over again starting form the first step, that should fix the problem.
+4. ![hi](2420_assignment_1\Image 3.png "Image")
+5. In the **SSH Key Content** box use paste your **Public SSH Key**, give it a name of your choice. Good practice is to name your keys as something that you will remeber, for example
+6. **"[MyProject]"** of course use the name of your project.
+7. If everything went well you should have result similar to the image below.
+8. If you are facing any issues, you may start the process all over again starting form the first step, that should fix the problem.
 
 *Please note that before contiuing to the nexe Step 4, you have to ensure that you finish the previous steps in this guide*
+
 **Step 4: Create a Project in your Digital Ocean account
-- 1.Click **New Project** in the menu located on the left side of your screen.
-- 2.Provide **Name** to your project
-- 3.Select a **Purpose** of your project
-- 4.Click **Create Project**
+ 1.Click **New Project** in the menu located on the left side of your screen.
+ 2.Provide **Name** to your project
+ 3.Select a **Purpose** of your project
+ 4.Click **Create Project**
 
 *Your Project should apper in the top left side menu, uner the dropdown menu __PROJECTS__* 
-
+#
 **Step 5: Create a new droplet**
 
 Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quick and straightforward process.
