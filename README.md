@@ -205,7 +205,7 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 8. Review additional options offered by Digital Ocean, and choose accordiign to your needs. Please note that all those sections are **Optional**
 9. Click **Create Droplet** located in the bottom right corner.
 
-> *Check if everything went well. Click "[Your actual project name]" located in the top left corner under the dropdown menu **Projects**. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
+*Check if everything went well. Click "[Your actual project name]" located in the top left corner under the dropdown menu **Projects**. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
 ![Droplet Created](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%205.png)
 
 ### **Step 5:Connecting to your droplet via SSH**
