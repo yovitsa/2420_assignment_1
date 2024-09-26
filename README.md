@@ -2,285 +2,232 @@
 ###### Student Name: Jovica Kuzmanovic
 ###### Student ID: A01339297
 #
+# Setting Up an Arch Linux Server on Digital Ocean
+- This guide will walk you through the process of setting up a server on Digital Ocean using Arch Linux. We'll cover everything from creating an SSH key pair to configuring your server with cloud-init.
+- The guide assume that you already have digital ocean account and that you posses the basic computer knoweldge,for example opening a terminal on your operating sytem(OS) and creating a directory on your OS.
 #
-#
-# Work in progess 
-
-This guide assume that you already have digital ocean account and that you psses the basic computer knoweldge, lke for example oipning a terminal on your operating sytem(OS). If you do not psses any of those this guide is not for you
-# Requierments
+## Requierments
 - Digital Ocean Account
-- A personal computer with an operting system
+- A personal computer with an operating system
 - Access to the Internet
-- Arch linux .qcow image (Download link may be found here: [Arch Linux Image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1545), Please downloand the **.qcow** which size is approximatley 500MB.
+- Arch linux .qcow image (Download link may be found here: [Arch Linux Image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1545). Please downloand the **.qcow** which size is approximatley 500MB.
+#
+## Topics:
 
+- SSH: Secure Shell Protocol.
+- Digital Ocean
+- Cloud-init
 
-                          
+## Guide Structure:
 
+- Creating an SSH Key Pair:
+    - Generate a public and private key pair for secure authentication.
+- Creating a Project on Digital Ocean:
+    - Set up a project to organize your resources.
+- Creating a Cloud-Init Configuration File: 
+    - Define initial configuration settings for your server.
+- Creating a Droplet:
+    - Launch a virtual private server (VPS) on Digital Ocean.
+- Conneting via ssh to our droplet
+
+## References:
+
+- Digital Ocean Documentation: https://docs.digitalocean.com/
+- Arch Linux Wiki: https://wiki.archlinux.org/
+- Cloud-Init Documentation: https://cloudinit.readthedocs.io/
+- DigitalOcean Cloud-Init: https://docs.digitalocean.com/products/droplets/how-to/automate-setup-with-cloud-init/
+- Arch Linux Wiki (Cloud-Init): https://wiki.archlinux.org/title/Cloud-init
+- YAML Validator: https://www.yamllint.com/
+- Arch Linux Wiki (Wayland): https://wiki.archlinux.org/title/Wayland
+#
+
+## **Before we create our first Secure Shell Protocol(SSH) key, we need to learn more about SSH**
 #### What is Secure Shell Protocol(SSH)?
 - SSH is a method for securely sending commands to a computer over an unsecured network. The SSH uses cryptography to authenticate and encrypt connections between devices.
 - SSH is secure because it incorporated encryption and authentication via process called public key cryptography. Public key cryptography is the way to encrypt the data, or sign data, with two different keys, one key is public, the other one is private kept by the owner.
 
 #### What does SSH do? 
-- SSH can do remote encrypted connections  SSH sets up a connection between a users device and a faraway machine, often a server, It uses encryption to scramble the data that traverses the connection.
-- SSH also has abillty to tunnel, tunneling is a method for moving packets across a network using a protocol or path they would not ordinarily be able to use, Tunneling works by wrapping data packets with additional information called headers to change their destination.
+- SSH can do remote encrypted connections. SSH sets up a connection between a users device and a faraway machine, often a server. It uses encryption to scramble the data that traverses the connection.
+- SSH also has abillty to tunnel. Tunneling is a method for moving packets across a network using a protocol or path they would not ordinarily be able to use. Tunneling works by wrapping data packets with additional information called headers to change their destination.
 
 #### When do we use SSH?
 - SSH is often used for controlling servers remotely, for managing infrastructure, and for transferring files.
 #
-#### Creating an (SSH) key pair on your local machine
+### Step 1: Creating an SSH key pair
 #
-**Step 1: Create an SSH key pair**
-1. Open the Terminal on your machine
-2. If you are using Windows as your OS you may need to create .ssh direcotory in your home directory first
-3. (Tilda) ~ == home directory
+#### **Create an SSH key pair**
+
+1. Open the Terminal on your machine.
+2. If you are using Windows as your OS you may need to create .ssh directory in your home directory first.
+3. (Tilda)~ in on your terminal means that you are in your home directory.
     
-Create a SSH key pair on **Linux** or **MacOS** type the following command:
+Create a SSH key pair on **Linux** or **MacOS** Type the following command:
         
-         ssh.keygen -t ed25519 -f ~/.ssh/do-key -C "youremail@address"
+    ssh.keygen -t ed25519 -f ~/.ssh/do-key -C "youremail@address"
          
-On **Windows** machine type the following command:
+On **Windows** machine Type the following command:
     
-         ssh-keygen -t ed25519 -f C:\Users\your-user-name\.ssh\do-key -C "youremail@email.com"
+    sh-keygen -t ed25519 -f C:\Users\your-user-name\.ssh\do-key -C "youremail@email.com"
 
          
 The command above will create a two text files in your .ssh directory
 
 **"do-key"** or **"do2-key"**    This is your private key
 **"do-key.pub"** or **"do2-key"**  This is the public key, this key will be copied to a server.
-      
-**Step 2: Copying your Public Key**
+#      
+#### **Copying your Public Key**
 
-Our keys are just a plain text files, on order to make sense of those files, we will use our terminal.
-Copying our public key is a straight forward process,  depending on your OS, please **COPY** the command into your terminal.
+Our keys are just a plain text files. In order to make sense of those files we will use our terminal.
+Copying our public key is a straight forward process, depending on your OS, please **COPY** the command into your terminal.
 
 For **Windows** users:
 
 
-      Get-Content C:\Users\your-user-name\.ssh\do-key.pub | Set-Clipboard
+    Get-Content C:\Users\your-user-name\.ssh\do-key.pub | Set-Clipboard
 
       
 For **MacOS** users:
 
     
-       pbcopy < ~/.ssh/do-key.pub
+    pbcopy < ~/.ssh/do-key.pub
  
-For **Linux**  users it will depend on the type of your distribution, [lease refer to the doucmetation of your distribution, here are some of the popular commands, note that the first command requires **Wayland** text editor:
+For **Linux** users it will depend on the type of your distribution. Please refer to the documentation of your distribution. Here are some of the popular commands. Note that the first command requires [**Wayland**](https://wiki.archlinux.org/title/Wayland) instalation:
     
     wl-copy < ~/.ssh/do-key.pub
+
     xclip -selection clipboard < ~/.ssh/do-key.pub
-    
-**Step 3: Adding your public key to Digital Ocean**
+
+#  
+#### **Adding your public key to Digital Ocean**
+
 1. Click on Settings located on the left side at your home page 
-2. A new page will open, Click **Security** tab
-3. New page will open, Click **Add SSH Key"" button which is located on the right side of the page 
- 
-- ![hi](2420_assignment_1\Image 3.png "Image")
-4. In the **SSH Key Content** box use paste your **Public SSH Key**, give it a name of your choice. Good practice is to name your keys as something that you will remeber, for example
-5. **"[MyProject]"** of course use the name of your project.
-6. If everything went well you should have result similar to the image below.
-7. If you are facing any issues, you may start the process all over again starting form the first step, that should fix the problem.
+2. Click **Security** tab
+3. Click **Add SSH Key** button which is located on the right side of the page 
+![Security and ADD SSH](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Settings.png)
+4. In the **SSH Key Content** box, paste your **Public SSH Key**, give it a name of your choice. Good practice is to name your keys as something that you will remeber, for example **"[MyProject]"** of course use the name of your project.
+![SSH](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%203.png)
+5. If everything went well you should have result similar to the image below.
+![SSH creation](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%204.png)
+6. If you are facing any issues, you may start the process all over again starting from the first step, that should fix the problem.
 
-*Please note that before contiuing to the nexe Step 4, you have to ensure that you finish the previous steps in this guide*
+**Please note that before continuing to the next steps of this guide, you have to ensure that you complete the previous steps.**
+#
+### **Step 2:Create a Project in your Digital Ocean account**
 
-**Step 4: Create a Project in your Digital Ocean account
-1. Click **New Project** in the menu located on the left side of your screen.
-2. Provide **Name** to your project
-3. Select a **Purpose** of your project
-4. Click **Create Project**
+ 1. Click **New Project** in the menu located on the left side of your screen.
+ 2. Type **Name** of your project
+ 3. Select **Purpose** of your project
+ 4. Click **Create Project**
 
-*Your Project should apper in the top left side menu, uner the dropdown menu __PROJECTS__* 
+ ![New Project Image](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/new%20project.png)
 
-**Step 5: Create a new droplet**
+Your Project should apper in the top left side menu, under the dropdown menu **PROJECTS**
+
+ ![Projects](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/new%20project1.png)
+#
+### **Cloud-init configuration file**
+#
+## **Before we initialize a cloud-init file, we should learn more about cloud-init**
+
+#### What is cloud init?
+Cloud-init allows us to setup a server with some initial configuration. In order to configure cloud-init we shoudl create a configuration file.
+One of the better practices is to create a YAML file.
+
+#### What is YAML file?
+[YAML](https://yaml.org/) is a human-readable data serialization language often used for configuration files, data storage, and inter-process communication. It's designed to be more readable than JSON and XML.
+
+#### What does cloud-init do?
+Cloud-init can handle a range of tasks that normally happen when a new instance is created. It’s responsible for activities like setting up the host name, configuring network interfaces, creating user accounts, and even running scripts. This streamlines the deployment process, your cloud instances will all be automatically configured in the same way, which reduces the chance to introduce human error.
+
+#### How does cloud-init work?
+The operation of cloud-init broadly takes place in two separate phases during the boot process. The first phase is during the early (local) boot stage, before networking has been enabled. The second phase is during the late boot stages, after cloud-init has applied the networking configuration.
+
+Now when we understand what is cloud-init and what dows it do, we can continue to our next step
+#
+
+### **Step 3:Create configuration file cloud-init**
+
+1. Run the commnad below in order ot confirm that clound-init is running:
+
+       systemctl status cloud-init
+2. Create cloud-init configuration in your .ssh folder. Yaml file needs to have an **.yml** extension
+    **example: cloud-init.yml**
+3. Edit cloud-init file in the text editor of your choice. You may use Notepad, Visual Studio Code, or any other program in which you can edit text.
+4. Copy the example below and paste into your cloud-init configuration file, and make changes as instructed, save yaml file on your machine. 
+    
+        #cloud-config
+        # This cloud-init configuration file defines various settings for your droplet.
+
+        # Defines a new user with the specified username, group, shell, and sudo privileges.
+        users: 
+        -name: user-name # Change this to your desired username
+        -primary_group: group-name # Change this to your desired group name
+        -groups: wheel # Adds the user to the wheel group for sudo privileges
+        -shell: /bin/bash # Sets the user's default shell
+        -sudo: ['ALL=(ALL) NOPASSWD:ALL'] # Grants the user sudo privileges without requiring a password
+        -ssh-authorized-keys: #paste here you public ssh key
+            - ssh-ed25519 ...
+
+        packages:
+         # Specifies a list of packages to be installed on the droplet.
+        - ripgrep
+        - rsync
+        - neovim
+        - fd
+        - less
+        - man-db
+        - bash-completion
+        - tmux
+
+        disable_root: true
+         # Disables the root user, making it safer to manage the droplet.
+#### Troubleshooting a cloud config file
+
+If the configuration in your file is not being applied you probably won't see an error message. You can find one in the logs, run the command:
+       -journalctl -b
+The first place you should look is your YAML file. YAML can be picky about white space, you may need to change some settings in your text editor, particularly if you are running Windows as your host machine. You can use [Yaml Validator](https://www.yamllint.com/) to check the validity your yaml file.
+#
+### **Step 4: Create a new droplet**
 
 Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quick and straightforward process.
-#
-1. Click **Create** button in the top right corner,
-2. Click **Droplets** in the dropdown menu
-3. Choose  **Region**  that is geographically closest to you if you actual location is not offred in the region options
-4. Select **Custom image** in the Choose an image section, and click **Add Image**, and upload the Arch lInux image that you have ppreviously downloaded.
+
+1. Click **Create** button located in the top right corner.
+2. Click **Droplets** in the dropdown menu.
+3. Choose **Region** that is geographically closest to you, if you actual location is not offred in the region options
+![Regions](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/regions.png)
+4. Select **Custom image** in the Choose an image section, and click **Add Image**, and upload the Arch Linux image that you have previously downloaded, for the purpose of this guide we are using a Custom Image. Other selection of OS images is available under the tab **OS**.
+![Custom Image](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/custom.png)
 5. Select **Biling Plan** that fits your need
 6. Select Authentication method **SSH Key**
-7. Review additional options offered by Digital Ocean, and choose accordigin to your needs, please note that all those sections are **Optional**
-8. Click **Create Droplet** located in the bottom right corner.
+7. Click **+ Additional Options**, and Select **Add Inatilaztion cripts**, and **Paste** teh conect in the **Enter your data here** text box
+![Additional Options](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/a.png)
+8. Review additional options offered by Digital Ocean, and choose accordigin to your needs. Please note that all those sections are **Optional**
+9. Click **Create Droplet** located in the bottom right corner.
 
-*Check if everything went well, Click "[Your actual project name]" located in the top left corner under the dropdown menu __Projects__. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
-##### Image of the droplet screenshot 5
+*Check if everything went well. Click "[Your actual project name]" located in the top left corner under the dropdown menu **Projects**. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
+![Droplet Created](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%205.png)
 
-##### Step 5 Create a new droplet
+### **Step 5:Connecting to your droplet via SSH**
 
-In order to create a new drolet we will need to install doctl on our machines,
+1. **Copy** your dropltes public IP address
 
-#### What is doctl?
-doctl (pronounced “dock-tul”, and short for “DigitalOcean Control”) is the official command-line interface for the DigitalOcean API.
-#### What you can do with doctl?
-
-doctl allows you to interact with your DigitalOcean resources from the command line of your local computer. Almost any action you can perform in the DigitalOcean Control Panel you can perform using doctl, such as creating and destroying Droplets, assigning reserved IP addresses, and updating cloud firewall settings. 
-
-#### How to Install and Configure doctl
-##### Step 1:Install doctl
-Depending on your OS, you can follwo the guide below"
-#### Installing doctl on **Windows**
-1. Open **Power Shell**
-2. Run the command below to download the most recent version of doctl:
-
-
+ ![IP address](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/ip%20address.png)
+2. Open your Terminal
+3. Type the command below, with you respective values
+     
+        ssh username@your_public_IP_address
+4. Press Enter
+5. You wiil get the a following meesage, Type **yes**
+![Yes command](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/yes%20command.png)
+6.Run the follwoing command, replace **username** with your actual username :
     
-       Invoke-WebRequest https://github.com/digitalocean/doctl/releases/download/v1.110.0/doctl-1 .110.0-windows-amd64.zip -OutFile ~\doctl-1.110.0-windows-amd64.zip
-       
-3. Next, extract th ebinary by running:
-    
-       Expand-Archive -Path ~\doctl-1.110.0-windows-amd64.zip
-4. Open your **POwerShell** terminal with **Run as Adminstartor**, move the doctl binary into a dedicated directory and add it to your syste, path by running the following command:
+       ssh username
 
-       -New-Item -ItemType Directory $env:ProgramFiles\doctl\
-       Move-Item -Path ~\doctl-1.110.0-windows-amd64\doctl.exe -Destination $env:ProgramFiles\doctl\
-       [Environment]::SetEnvironmentVariable(
-            "Path",
-       [Environment]::GetEnvironmentVariable("Path",
-       [EnvironmentVariableTarget]::Machine) + ";$env:ProgramFiles\doctl\",
-       [EnvironmentVariableTarget]::Machine)
-       $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
-       
-#### Step 2: Create an API token
-  [Create a DigitalOcean API token](https://docs.digitalocean.com/reference/api/create-personal-access-token/ ) for your account with read and write access from the Applications & API page in the control panel. The token string is only displayed once, so save it in a safe place.
-
-#### Step 3: Use the API token to grant account access to doctl
- Note
-If you installed doctl using the Ubuntu Snap package, you may need to first create the user configuration directory if it does not exist yet by running mkdir ~/.config.
-Use the API token to grant doctl access to your DigitalOcean account. Pass in the token string when prompted by doctl auth init, and give this authentication context a name.
-
-    doctl auth init --context <NAME>
-
-Authentication contexts let you switch between multiple authenticated accounts. You can repeat steps 2 and 3 to add other DigitalOcean accounts, then list and switch between authentication contexts:
-
-      doctl auth list
-      doctl auth switch --context <NAME>
-
-Step 4: Validate that doctl is working
-Now that doctl is authorized to use your account, try some test commands.
-
-To confirm that you have successfully authorized doctl, review your account details by running:
-
-     doctl account get
-
-If successful, the output looks like:
-
-    Email                      Droplet Limit    Email Verified    UUID                                        Status
-    sammy@example.org          10               true              3a56c5e109736b50e823eaebca85708ca0e5087c    active
-
-To confirm that you have successfully granted write access to doctl, create an Ubuntu 23.10 Droplet in the SFO2 region by running:
-
-    doctl compute droplet create --region sfo2 --image ubuntu-23-10-x64 --size s-1vcpu-1gb <DROPLET-NAME>
-
-You can get a full list of available Droplet images by running doctl compute image list. The output of that command includes an ID column with the new Droplet’s ID. For example:
-
-    ID           Name            Public IPv4    Private IPv4    Public IPv6    Memory    VCPUs    Disk    Region    Image                       Status    Tags    Features    Volumes
-    187949338    droplet-name    1024      1        25      sfo2      Ubuntu 18.04.3 (LTS) x64  new
-
-Use that value to delete the Droplet by running:
-
-    doctl compute droplet delete <DROPLET-ID>
-
-When prompted, type **y** to confirm that you would like to delete the Droplet.
-       
-#### Installing doctl on Linux and MacOS
-Visit the [Releases page](https://github.com/digitalocean/doctl/releases "Releases page"). for the doctl GitHub project and find the appropriate archive for your operating system and architecture. Download the archive from your browser or copy its URL and retrieve it to your home directory with wget.
-
-For example, to download the most recent version of doctl for Linux with wget, run:
-
-     cd ~
-     wget https://github.com/digitalocean/doctl/releases/download/v1.110.0/doctl-1.110.0-linux-amd64.tar.gz
-
-Next, extract the binary. For example, to do so using tar, run:
-
-     tar xf ~/doctl-1.110.0-linux-amd64.tar.gz
-
-Finally, move the doctl binary into your path by running:
-
-    sudo mv ~/doctl /usr/local/bin
- 
-Step 2: Create an API token
-[Create a DigitalOcean API token](https://docs.digitalocean.com/reference/api/create-personal-access-token/ ) for your account with read and write access from the Applications & API page in the control panel. The token string is only displayed once, so save it in a safe place.
-
-Step 3: Use the API token to grant account access to doctl
-Note
-If you installed doctl using the Ubuntu Snap package, you may need to first create the user configuration directory if it does not exist yet by running 
-        mkdir ~/.config.
-Use the API token to grant doctl access to your DigitalOcean account. Pass in the token string when prompted by doctl auth init, and give this authentication context a name.
-
-        doctl auth init --context <NAME>
-
-Authentication contexts let you switch between multiple authenticated accounts. You can repeat steps 2 and 3 to add other DigitalOcean accounts, then list and switch between authentication contexts:
-
-        doctl auth list
-        doctl auth switch --context <NAME>
-
-Step 4: Validate that doctl is working
-Now that doctl is authorized to use your account, try some test commands.
-
-To confirm that you have successfully authorized doctl, review your account details by running:
-
-        doctl account get
-
-If successful, the output looks like:
-
-     Email                      Droplet Limit    Email Verified    UUID                    Status sammy@example.org              10           true          3a56c5e109736b50e823eaebca  active     
-Copy
-To confirm that you have successfully granted write access to doctl, create an Ubuntu 23.10 Droplet in the SFO2 region by running:
-
-        doctl compute droplet create --region sfo2 --image ubuntu-23-10-x64 --size s-1vcpu-1gb <DROPLET-NAME>
-
-You can get a full list of available Droplet images by running doctl compute image list. The output of that command includes an ID column with the new Droplet’s ID. For example:
-
-    ID           Name            Public IPv4    Private IPv4    Public IPv6    Memory    VCPUs    Disk    Region    Image                       Status    Tags    Features    Volumes
-    187949338    droplet-name                                                  1024      1        25      sfo2      Ubuntu 18.04.3 (LTS) x64    new
-
-Use that value to delete the Droplet by running:
-
-    doctl compute droplet delete <DROPLET-ID>
-
-When prompted, type **y** to confirm that you would like to delete the Droplet.
-
-### Creating a droplet with  Arch linux OS using doctl
-We will create a our custom image droplet with Arch Linux OS.
-Run the following command in order to get the list of images:
-        
-    doctl compute image list
-
-You will see a list similar to image below:
-![Output result](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/image%206.png "Image")
-Step 1:Image ID:
-
-AS you may notice the Arch Linux image does not have an im age Slug, 
-In order to install Arch LInnux we will us the Arch Linux ID which you may find on the image below located in **red** swqaure
-
-![Output result](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/image%20%207.png "Image")
-
-Step 2: Upload Your Custom Image by running the command below:
-        
-        doctl compute image create --image-url <URL_OF>YOUR>IMAGE> --region <YOUR_REGION>
-
-Replace <URL_OF_YOUR_IMAGE> with URL where Arch LInux is hosted. You can find it here [Arch Linux Image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/package_files/7529/download)
-
-Step 3: Create the Droplet:
-Run the command below to create a droplet, replace your image ID with the ID from step one.
-
-        doctl compute droplet create <DROPLET NAME> --region <YOUR_REGION> --image <IMAGE_ID> --size <DROPLET_SIZE> --ssh-keys <YOUR_SSH_KEYS>
-        
-Replace <DROPLET NAME>, <YOUR_REGION>, <IMAGE_ID>, <DROPLET_SIZE>, <YOUR_SSH_KEYS>, with your desired values.
-
-Here is an example of the command:
-    
-      doctl compute droplet create Arch --region sfo3 --image 165064171 --size s-1vcpu-1gb --ssh-keys 1234567891234569
-      
-Run the command:
-        
-        doctl compute droplet list
-
-Your output should be similar to this one:
-###image 8
-
-![Output result](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/image%208.png "Image")
+7. Your terminal should look similar to the image below. This is confirmation that you are connected to your droplet
+![confirm](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/arch%20linux%20confiramtion.png)
 
 
-## 
+
+**Congratulations, You have finished all the steps from this Guide**
+
+

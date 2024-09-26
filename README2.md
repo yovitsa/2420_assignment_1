@@ -210,7 +210,6 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 ### **Step 5:Connecting to your droplet via SSH**
 
 1. **Copy** your dropltes public IP address
-
  ![IP address](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/ip%20address.png)
 2. Open your Terminal
 3. Type the command below, with you respective values
