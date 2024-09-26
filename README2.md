@@ -122,7 +122,8 @@ For **Linux**  users it will depend on the type of your distribution, Please ref
  ![New Project Image](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/new%20project.png)
 
 Your Project should apper in the top left side menu, under the dropdown menu __PROJECTS__
-![Projects](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/new%20project1.png)
+
+ ![Projects](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/new%20project1.png)
 #
 ### **Cloud-init configuration file**
 #
