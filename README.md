@@ -32,12 +32,13 @@
 
 ## References:
 
-- Digital Ocean Documentation: https://docs.digitalocean.com/
+- Digital Ocean documentation: https://docs.digitalocean.com/
 - Arch Linux Wiki: https://wiki.archlinux.org/
-- Cloud-Init Documentation: https://cloudinit.readthedocs.io/
-- DigitalOcean Cloud-Init: https://docs.digitalocean.com/products/droplets/how-to/automate-setup-with-cloud-init/
-- Arch Linux Wiki (Cloud-Init): https://wiki.archlinux.org/title/Cloud-init
-- YAML Validator: https://www.yamllint.com/
+- Cloud-init documentation: https://cloudinit.readthedocs.io/
+- Cloud-init initial server setup: https://www.digitalocean.com/community/tutorials/how-to-use-cloud-config-for-your-initial-server-setup
+- Digital Ocean Cloud-Init: https://docs.digitalocean.com/products/droplets/how-to/automate-setup-with-cloud-init/
+- Arch Linux Wiki (Cloud-init): https://wiki.archlinux.org/title/Cloud-init
+- YAML validator: https://www.yamllint.com/
 - Arch Linux Wiki (Wayland): https://wiki.archlinux.org/title/Wayland
 #
 
