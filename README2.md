@@ -4,9 +4,9 @@
 #
 #
 #
-# Work in progess 
-This guide will walk you through the process of setting up a server on Digital Ocean using Arch Linux. We'll cover everything from creating an SSH key pair to configuring your server with cloud-init.
-The guide assume that you already have digital ocean account and that you psses the basic computer knoweldge,for example opening a terminal on your operating sytem(OS).
+# Setting Up an Arch Linux Server on DigitalOcean with Cloud-Init
+- This guide will walk you through the process of setting up a server on Digital Ocean using Arch Linux. We'll cover everything from creating an SSH key pair to configuring your server with cloud-init.
+- The guide assume that you already have digital ocean account and that you psses the basic computer knoweldge,for example opening a terminal on your operating sytem(OS).
 #
 # Requierments
 - Digital Ocean Account
@@ -14,7 +14,7 @@ The guide assume that you already have digital ocean account and that you psses 
 - Access to the Internet
 - Arch linux .qcow image (Download link may be found here: [Arch Linux Image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1545) , Please downloand the **.qcow** which size is approximatley 500MB.
 #
-Topivs:
+Topics:
 
 - SSH: Secure Shell Protocol.
 - Digital Ocean
@@ -33,6 +33,10 @@ References:
 - Digital Ocean Documentation: https://docs.digitalocean.com/
 - Arch Linux Wiki: https://wiki.archlinux.org/
 - Cloud-Init Documentation: https://cloudinit.readthedocs.io/
+- DigitalOcean Cloud-Init: https://docs.digitalocean.com/products/droplets/how-to/automate-setup-with-cloud-init/
+- Arch Linux Wiki (Cloud-Init): https://wiki.archlinux.org/title/Cloud-init
+- YAML Validator: https://www.yamllint.com/
+#
 
 #### What is Secure Shell Protocol(SSH)?
 - SSH is a method for securely sending commands to a computer over an unsecured network. The SSH uses cryptography to authenticate and encrypt connections between devices.
@@ -53,11 +57,11 @@ References:
 2. If you are using Windows as your OS you may need to create .ssh direcotory in your home directory first
 3. (Tilda) ~ == home directory
     
-Create a SSH key pair on **Linux** or **MacOS** type the following command:
+Create a SSH key pair on **Linux** or **MacOS** Type the following command:
         
     ssh.keygen -t ed25519 -f ~/.ssh/do-key -C "youremail@address"
          
-On **Windows** machine type the following command:
+On **Windows** machine Type the following command:
     
     sh-keygen -t ed25519 -f C:\Users\your-user-name\.ssh\do-key -C "youremail@email.com"
 
@@ -83,7 +87,7 @@ For **MacOS** users:
     
     pbcopy < ~/.ssh/do-key.pub
  
-For **Linux**  users it will depend on the type of your distribution, [lease refer to the doucmetation of your distribution, here are some of the popular commands, note that the first command requires **Wayland** text editor:
+For **Linux**  users it will depend on the type of your distribution, Please refer to the doucmetation of your distribution, here are some of the popular commands, note that the first command requires [**Wayland**](https://wiki.archlinux.org/title/Wayland) instalation:
     
     wl-copy < ~/.ssh/do-key.pub
 
@@ -183,7 +187,7 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 2. Click **Droplets** in the dropdown menu
 3. Choose  **Region**  that is geographically closest to you if you actual location is not offred in the region options
 ![Regions](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/regions.png)
-4. Select **Custom image** in the Choose an image section, and click **Add Image**, and upload the Arch Linux image that you have previously downloaded.
+4. Select **Custom image** in the Choose an image section, and click **Add Image**, and upload the Arch Linux image that you have previously downloaded, for the purpose of this guide we are using a Custom Image, but other selection of OS images is available under the tab **OS**.
 ![Custom Image](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/custom.png)
 5. Select **Biling Plan** that fits your need
 6. Select Authentication method **SSH Key**
@@ -195,11 +199,11 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 *Check if everything went well, Click "[Your actual project name]" located in the top left corner under the dropdown menu __Projects__. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
 ![Droplet Created](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%205.png)
 
-### **Step 5:Connecting to your droplet via SSH **
+### **Step 5:Connecting to your droplet via SSH**
 
-1. ** Copy ** your dropltes public IP address
+1. **Copy** your dropltes public IP address
 ![IP address](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/ip%20address.png)
-2. Opem Your terminal
+2. Open your Terminal
 3. Type the command below, with you respective values
      
         ssh username@your_public_IP_address
