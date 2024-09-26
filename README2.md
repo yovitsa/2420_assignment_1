@@ -4,7 +4,7 @@
 #
 # Setting Up an Arch Linux Server on Digital Ocean
 - This guide will walk you through the process of setting up a server on Digital Ocean using Arch Linux. We'll cover everything from creating an SSH key pair to configuring your server with cloud-init.
-- The guide assume that you already have digital ocean account and that you posses the basic computer knoweldge,for example opening a terminal on your operating sytem(OS).
+- The guide assume that you already have digital ocean account and that you posses the basic computer knoweldge,for example opening a terminal on your operating sytem(OS) and creating a directory on your OS.
 #
 ## Requierments
 - Digital Ocean Account
@@ -53,13 +53,13 @@
 #### When do we use SSH?
 - SSH is often used for controlling servers remotely, for managing infrastructure, and for transferring files.
 #
-### Step 1: Creating an (SSH) key pair
+### Step 1: Creating an SSH key pair
 #
 #### **Create an SSH key pair**
 
-1. Open the Terminal on your machine
-2. If you are using Windows as your OS you may need to create .ssh direcotory in your home directory first
-3. (Tilda) ~ == home directory
+1. Open the Terminal on your machine.
+2. If you are using Windows as your OS you may need to create .ssh direcotory in your home directory first.
+3. (Tilda)~ in on your terminal means that you are in your home directory.
     
 Create a SSH key pair on **Linux** or **MacOS** Type the following command:
         
@@ -102,14 +102,15 @@ For **Linux**  users it will depend on the type of your distribution, Please ref
 
 1. Click on Settings located on the left side at your home page 
 2. A new page will open, Click **Security** tab
-3. New page will open, Click **Add SSH Key"" button which is located on the right side of the page 
+3. New page will open, Click **Add SSH Key** button which is located on the right side of the page 
+![Security and ADD SSH](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Settings.png)
 4. In the **SSH Key Content** box use paste your **Public SSH Key**, give it a name of your choice. Good practice is to name your keys as something that you will remeber, for example **"[MyProject]"** of course use the name of your project.
 ![SSH](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%203.png)
 5. If everything went well you should have result similar to the image below.
 ![SSH creation](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%204.png)
 6. If you are facing any issues, you may start the process all over again starting form the first step, that should fix the problem.
 
-*Please note that before contiuing to the next steps of this guide, you have to ensure that you finish the previous steps in this guide*
+**Please note that before contiuing to the next steps of this guide, you have to ensure that you finish the previous steps in this guide**
 #
 ### **Step 2:Create a Project in your Digital Ocean account**
 
@@ -120,7 +121,7 @@ For **Linux**  users it will depend on the type of your distribution, Please ref
 
  ![New Project Image](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/new%20project.png)
 
-*Your Project should apper in the top left side menu, under the dropdown menu __PROJECTS__* 
+Your Project should apper in the top left side menu, under the dropdown menu __PROJECTS__
 ![Projects](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/new%20project1.png)
 #
 ### **Cloud-init configuration file**
