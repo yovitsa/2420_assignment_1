@@ -2,33 +2,35 @@
 ###### Student Name: Jovica Kuzmanovic
 ###### Student ID: A01339297
 #
-#
-#
-# Setting Up an Arch Linux Server on DigitalOcean with Cloud-Init
+# Setting Up an Arch Linux Server on Digital Ocean
 - This guide will walk you through the process of setting up a server on Digital Ocean using Arch Linux. We'll cover everything from creating an SSH key pair to configuring your server with cloud-init.
-- The guide assume that you already have digital ocean account and that you psses the basic computer knoweldge,for example opening a terminal on your operating sytem(OS).
+- The guide assume that you already have digital ocean account and that you posses the basic computer knoweldge,for example opening a terminal on your operating sytem(OS).
 #
-# Requierments
+## Requierments
 - Digital Ocean Account
 - A personal computer with an operating system
 - Access to the Internet
 - Arch linux .qcow image (Download link may be found here: [Arch Linux Image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1545) , Please downloand the **.qcow** which size is approximatley 500MB.
 #
-Topics:
+## Topics:
 
 - SSH: Secure Shell Protocol.
 - Digital Ocean
 - Cloud-init
 
-Guide Structure:
+## Guide Structure:
 
-- Creating an SSH Key Pair: Generate a public and private key pair for secure authentication.
-- Creating a Project on Digital Ocean: Set up a project to organize your resources.
-- Creating a Cloud-Init Configuration File: Define initial configuration settings for your server.
-- Creating a Droplet: Launch a virtual private server (VPS) on Digital Ocean.
+- Creating an SSH Key Pair:
+    - Generate a public and private key pair for secure authentication.
+- Creating a Project on Digital Ocean:
+    - Set up a project to organize your resources.
+- Creating a Cloud-Init Configuration File: 
+    - Define initial configuration settings for your server.
+- Creating a Droplet:
+    - Launch a virtual private server (VPS) on Digital Ocean.
 - Conneting via ssh to our droplet
 
-References:
+## References:
 
 - Digital Ocean Documentation: https://docs.digitalocean.com/
 - Arch Linux Wiki: https://wiki.archlinux.org/
@@ -36,14 +38,16 @@ References:
 - DigitalOcean Cloud-Init: https://docs.digitalocean.com/products/droplets/how-to/automate-setup-with-cloud-init/
 - Arch Linux Wiki (Cloud-Init): https://wiki.archlinux.org/title/Cloud-init
 - YAML Validator: https://www.yamllint.com/
+- Arch Linux Wiki (Wayland): https://wiki.archlinux.org/title/Wayland
 #
 
+## **Before we create our first SSH key, we need to learn more about Secure Shell Protocol(SSH)**
 #### What is Secure Shell Protocol(SSH)?
 - SSH is a method for securely sending commands to a computer over an unsecured network. The SSH uses cryptography to authenticate and encrypt connections between devices.
 - SSH is secure because it incorporated encryption and authentication via process called public key cryptography. Public key cryptography is the way to encrypt the data, or sign data, with two different keys, one key is public, the other one is private kept by the owner.
 
 #### What does SSH do? 
-- SSH can do remote encrypted connections  SSH sets up a connection between a users device and a faraway machine, often a server, It uses encryption to scramble the data that traverses the connection.
+- SSH can do remote encrypted connections SSH sets up a connection between a users device and a faraway machine, often a server, It uses encryption to scramble the data that traverses the connection.
 - SSH also has abillty to tunnel, tunneling is a method for moving packets across a network using a protocol or path they would not ordinarily be able to use, Tunneling works by wrapping data packets with additional information called headers to change their destination.
 
 #### When do we use SSH?
@@ -74,7 +78,7 @@ The command above will create a two text files in your .ssh directory
 #### **Copying your Public Key**
 
 Our keys are just a plain text files, on order to make sense of those files, we will use our terminal.
-Copying our public key is a straight forward process,  depending on your OS, please **COPY** the command into your terminal.
+Copying our public key is a straight forward process, depending on your OS, please **COPY** the command into your terminal.
 
 For **Windows** users:
 
@@ -117,10 +121,11 @@ For **Linux**  users it will depend on the type of your distribution, Please ref
  ![New Project Image](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/new%20project.png)
 
 *Your Project should apper in the top left side menu, under the dropdown menu __PROJECTS__* 
+![Projects](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/new%20project1.png)
 #
 ### **Cloud-init configuration file**
 #
-*Before we create a cloud-init file, we should learn more about cloud-init*
+## *Before we create a cloud-init file, we should learn more about cloud-init*
 
 #### What is cloud init?
 Cloud-init allows us to setup a server with some initial configuration. In order to configure cloud-init we shoudl create a configuration file.
