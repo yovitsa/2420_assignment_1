@@ -199,9 +199,9 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 ![Custom Image](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/custom.png)
 5. Select **Biling Plan** that fits your need
 6. Select Authentication method **SSH Key**
-7. Click **+ Additional Options**, and Select **Add Inatilaztion cripts**, and **Paste** teh conect in the **Enter your data here** text box
+7. Click **+ Additional Options**, and Select **Add Inatilaztion cripts**, and **Paste** the content in the **Enter user data here** text box
 ![Additional Options](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/a.png)
-8. Review additional options offered by Digital Ocean, and choose accordigin to your needs. Please note that all those sections are **Optional**
+8. Review additional options offered by Digital Ocean, and choose accordiign to your needs. Please note that all those sections are **Optional**
 9. Click **Create Droplet** located in the bottom right corner.
 
 *Check if everything went well. Click "[Your actual project name]" located in the top left corner under the dropdown menu **Projects**. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
@@ -218,7 +218,7 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
      
         ssh username@your_public_IP_address
 4. Press Enter
-5. You wiil get the a following meesage, Type **yes**
+5. You wiil see the a following meesage, Type **yes**
 ![Yes command](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/yes%20command.png)
 6.Run the follwoing command, replace **username** with your actual username :
     
