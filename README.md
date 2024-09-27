@@ -223,7 +223,7 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 
 
 
-> **Congratulations, You have finished all the steps from this Guide**
+**Congratulations, You have finished all the steps from this guide.**
 
 
 
