@@ -220,12 +220,14 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
         ssh username@your_public_IP_address
 4. Press Enter
 5. You wiil see the a following meesage, Type **yes**
+
 ![Yes command](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/yes%20command.png)
 6.Run the follwoing command, replace **username** with your actual username :
     
        ssh username
 
 7. Your terminal should look similar to the image below. This is confirmation that you are connected to your droplet
+
 ![confirm](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/arch%20linux%20confiramtion.png)
 
 
