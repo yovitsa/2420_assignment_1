@@ -24,7 +24,7 @@
 2. Create a Project in your Digital Ocean account.
 3. Creating a Cloud-Init Configuration File. 
 4. Creating a Droplet.
-5. Conneting via ssh to our droplet.
+5. Conneting via ssh to our Droplet.
 
 #
 ### Step 1: Creating an SSH key pair
