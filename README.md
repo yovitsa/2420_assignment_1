@@ -18,17 +18,17 @@
 - Digital Ocean
 - Cloud-init
 
-## Guide Structure:
+## Table of Content:
 
-- Creating an SSH Key Pair:
+1. Creating an SSH Key Pair:
     - Generate a public and private key pair for secure authentication.
-- Creating a Project on Digital Ocean:
+2. Creating a Project on Digital Ocean:
     - Set up a project to organize your resources.
-- Creating a Cloud-Init Configuration File: 
+3. Creating a Cloud-Init Configuration File: 
     - Define initial configuration settings for your server.
-- Creating a Droplet:
+4. Creating a Droplet:
     - Launch a virtual private server (VPS) on Digital Ocean.
-- Conneting via ssh to our droplet
+5. Conneting via ssh to our droplet
 
 #
 
