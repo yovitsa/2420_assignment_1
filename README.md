@@ -25,6 +25,8 @@
 3. Creating a Cloud-Init Configuration File. 
 4. Creating a Droplet.
 5. Conneting via ssh to our Droplet.
+6. References
+7. Glossary Terms
 
 #
 ### Step 1: Creating an SSH key pair
@@ -224,7 +226,7 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 
 
 
-##                                             References:
+## References:
 
 1. Digital Ocean documentation: https://docs.digitalocean.com/
 2. Arch Linux Wiki: https://wiki.archlinux.org/
@@ -237,3 +239,23 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 9. What is SSH? https://www.cloudflare.com/learning/access-management/what-is-ssh/
 10. How to create a Droplet? https://docs.digitalocean.com/products/droplets/how-to/create/
 #
+
+## Glosary Terms
+
+
+- Cloud Droplet: A virtual private server (VPS) offered by DigitalOcean.
+- Project: A way to organize your resources on DigitalOcean, such as Droplets, Block Storage, and Networking.
+- SSH Key: A cryptographic key pair used for secure remote login to a server.
+- Region: The geographical location of your Droplet's data center.
+- Billing Plan: The pricing tier you choose for your Droplet, based on resources like CPU, RAM, and storage.
+- Initialization Script (cloud-init): A configuration file used to automate the initial setup of a server during boot.
+- Command-Line Interface (CLI): A text-based interface for interacting with a computer. (e.g. Terminal)
+- SSH (Secure Shell): A network protocol that allows for secure remote login to a server.
+- Public Key Cryptography: A cryptographic system that uses a pair of keys to encrypt and decrypt messages.
+- Private Key: The secret key in a public key cryptography system, used for decryption.
+- Public Key: The public key in a public key cryptography system, used for encryption.
+- Authentication: The process of verifying someone's identity.
+- Encryption: The process of scrambling data to make it unreadable without a key.
+- Decryption: The process of unscrambling encrypted data back to its original form.
+- Tunneling: A method of encapsulating data within another protocol to send it across a network.
+- YAML: A human-readable data format often used for configuration files.
