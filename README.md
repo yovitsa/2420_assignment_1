@@ -206,6 +206,7 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 9. Click **Create Droplet** located in the bottom right corner.
 
 *Check if everything went well. Click "[Your actual project name]" located in the top left corner under the dropdown menu **Projects**. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
+
 ![Droplet Created](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/Image%205.png)
 
 ### **Step 5:Connecting to your droplet via SSH**
@@ -235,3 +236,15 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 > **Congratulations, You have finished all the steps from this Guide**
 
 
+
+##                                             References:
+
+1. Digital Ocean documentation: https://docs.digitalocean.com/
+2. Arch Linux Wiki: https://wiki.archlinux.org/
+3. Cloud-init documentation: https://cloudinit.readthedocs.io/
+4. Cloud-init initial server setup: https://www.digitalocean.com/community/tutorials/how-to-use-cloud-config-for-your-initial-server-setup
+5. Digital Ocean Cloud-Init: https://docs.digitalocean.com/products/droplets/how-to/automate-setup-with-cloud-init/
+6. Arch Linux Wiki (Cloud-init): https://wiki.archlinux.org/title/Cloud-init
+7. YAML validator: https://www.yamllint.com/
+8. Arch Linux Wiki (Wayland): https://wiki.archlinux.org/title/Wayland
+#
