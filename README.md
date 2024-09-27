@@ -2,12 +2,12 @@
 ###### Student Name: Jovica Kuzmanovic
 ###### Student ID: A01339297
 #
-# Setting Up an Arch Linux Server on Digital Ocean
-- This guide will walk you through the process of setting up a server on Digital Ocean using Arch Linux. We'll cover everything from creating an SSH key pair to configuring your server with cloud-init.
-- The guide assume that you already have digital ocean account and that you posses the basic computer knoweldge,for example opening a terminal on your operating sytem(OS) and creating a directory on your OS.
+# Setting Up an Arch Linux Server on DigitalOcean
+- This guide will walk you through the process of setting up a server on DigitalOcean using Arch Linux. We'll cover everything from creating an SSH key pair to configuring your server with cloud-init.
+- The guide assume that you already have DigitalOcean account and that you posses the basic computer knoweldge,for example opening a terminal on your operating sytem(OS) and creating a directory on your OS.
 #
 ## Requierments
-- Digital Ocean Account
+- DigitalOcean Account
 - A personal computer with an operating system
 - Access to the Internet
 - Arch linux .qcow image (Download link may be found here: [Arch Linux Image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1545). Please downloand the **.qcow** which size is approximatley 500MB.
@@ -15,13 +15,13 @@
 ## Topics:
 
 - SSH: Secure Shell Protocol.
-- Digital Ocean
+- DigitalOcean
 - Cloud-init
 
 ## Table of Content:
 
 1. Creating an SSH Key Pair.
-2. Create a Project in your Digital Ocean account.
+2. Create a Project in your DigitalOcean account.
 3. Creating a Cloud-Init Configuration File. 
 4. Creating a Droplet.
 5. Conneting via ssh to our Droplet.
@@ -88,7 +88,7 @@ For **Linux** users it will depend on the type of your distribution. Please refe
     xclip -selection clipboard < ~/.ssh/do-key.pub
 
 #  
-#### **Adding your public key to Digital Ocean**
+#### **Adding your public key to DigitalOcean**
 
 1. Click on Settings located on the left side at your home page 
 2. Click **Security** tab
@@ -102,7 +102,7 @@ For **Linux** users it will depend on the type of your distribution. Please refe
 
 > **Please note that before continuing to the next steps of this guide, you have to ensure that you complete the previous steps.**
 #
-### **Step 2:Create a Project in your Digital Ocean account**
+### **Step 2:Create a Project in your DigitalOcean account**
 
  1. Click **New Project** in the menu located on the left side of your screen.
  2. Type **Name** of your project
@@ -179,7 +179,7 @@ The first place you should look is your YAML file. YAML can be picky about white
 #
 ### **Step 4: Create a new droplet**
 
-Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quick and straightforward process.
+Creating a droplet (or a virtual private server(VPS)) in DigitalOcean is a quick and straightforward process.
 
 1. Click **Create** button located in the top right corner.
 2. Click **Droplets** in the dropdown menu.
@@ -191,7 +191,7 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 6. Select Authentication method **SSH Key**
 7. Click **+ Additional Options**, and Select **Add Inatilaztion cripts**, and **Paste** the content in the **Enter user data here** text box
 ![Additional Options](https://github.com/yovitsa/2420_assignment_1/blob/main/assets/a.png)
-8. Review additional options offered by Digital Ocean, and choose accordiign to your needs. Please note that all those sections are **Optional**
+8. Review additional options offered by DigitalOcean, and choose accordiign to your needs. Please note that all those sections are **Optional**
 9. Click **Create Droplet** located in the bottom right corner.
 
 *Check if everything went well. Click "[Your actual project name]" located in the top left corner under the dropdown menu **Projects**. When inside your projects under the tab __Resources__, you should see your newly created droplet. Refer to the image below*
@@ -228,11 +228,11 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 
 ## References:
 
-1. Digital Ocean documentation: https://docs.digitalocean.com/
+1. DigitalOcean documentation: https://docs.digitalocean.com/
 2. Arch Linux Wiki: https://wiki.archlinux.org/
 3. Cloud-init documentation: https://cloudinit.readthedocs.io/
 4. Cloud-init initial server setup: https://www.digitalocean.com/community/tutorials/how-to-use-cloud-config-for-your-initial-server-setup
-5. Digital Ocean Cloud-Init: https://docs.digitalocean.com/products/droplets/how-to/automate-setup-with-cloud-init/
+5. DigitalOcean Cloud-Init: https://docs.digitalocean.com/products/droplets/how-to/automate-setup-with-cloud-init/
 6. Arch Linux Wiki (Cloud-init): https://wiki.archlinux.org/title/Cloud-init
 7. YAML validator: https://www.yamllint.com/
 8. Arch Linux Wiki (Wayland): https://wiki.archlinux.org/title/Wayland
@@ -240,7 +240,7 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 10. How to create a Droplet? https://docs.digitalocean.com/products/droplets/how-to/create/
 #
 
-## Glosary Terms
+## Glosary of Terms
 
 
 - Cloud Droplet: A virtual private server (VPS) offered by DigitalOcean.
