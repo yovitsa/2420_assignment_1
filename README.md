@@ -30,16 +30,6 @@
     - Launch a virtual private server (VPS) on Digital Ocean.
 - Conneting via ssh to our droplet
 
-## References:
-
-- Digital Ocean documentation: https://docs.digitalocean.com/
-- Arch Linux Wiki: https://wiki.archlinux.org/
-- Cloud-init documentation: https://cloudinit.readthedocs.io/
-- Cloud-init initial server setup: https://www.digitalocean.com/community/tutorials/how-to-use-cloud-config-for-your-initial-server-setup
-- Digital Ocean Cloud-Init: https://docs.digitalocean.com/products/droplets/how-to/automate-setup-with-cloud-init/
-- Arch Linux Wiki (Cloud-init): https://wiki.archlinux.org/title/Cloud-init
-- YAML validator: https://www.yamllint.com/
-- Arch Linux Wiki (Wayland): https://wiki.archlinux.org/title/Wayland
 #
 
 ## **Before we create our first Secure Shell Protocol(SSH) key, we need to learn more about SSH**
