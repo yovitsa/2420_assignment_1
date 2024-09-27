@@ -20,17 +20,14 @@
 
 ## Table of Content:
 
-1. Creating an SSH Key Pair:
-    - Generate a public and private key pair for secure authentication.
-2. Creating a Project on Digital Ocean:
-    - Set up a project to organize your resources.
+1. Creating an SSH Key Pair
+2. Create a Project in your Digital Ocean account
 3. Creating a Cloud-Init Configuration File: 
-    - Define initial configuration settings for your server.
 4. Creating a Droplet:
-    - Launch a virtual private server (VPS) on Digital Ocean.
 5. Conneting via ssh to our droplet
 
 #
+### Step 1: Creating an SSH key pair
 
 ## **Before we create our first Secure Shell Protocol(SSH) key, we need to learn more about SSH**
 #### What is Secure Shell Protocol(SSH)?
@@ -44,7 +41,7 @@
 #### When do we use SSH?
 - SSH is often used for controlling servers remotely, for managing infrastructure, and for transferring files.
 #
-### Step 1: Creating an SSH key pair
+
 #
 #### **Create an SSH key pair**
 
@@ -237,4 +234,6 @@ Creating a droplet (or a virtual private server(VPS)) in Digital Ocean is a quic
 6. Arch Linux Wiki (Cloud-init): https://wiki.archlinux.org/title/Cloud-init
 7. YAML validator: https://www.yamllint.com/
 8. Arch Linux Wiki (Wayland): https://wiki.archlinux.org/title/Wayland
+9. What is SSH? https://www.cloudflare.com/learning/access-management/what-is-ssh/
+10. How to create a Droplet? https://docs.digitalocean.com/products/droplets/how-to/create/
 #
