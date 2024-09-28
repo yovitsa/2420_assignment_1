@@ -25,7 +25,7 @@
 3. Creating a Cloud-Init Configuration File. 
 4. Creating a Droplet.
 5. Conneting via ssh to our Droplet.
-6. References
+6. References.
 
 
 #
@@ -44,7 +44,6 @@
 - SSH is often used for controlling servers remotely, for managing infrastructure, and for transferring files.
 #
 
-#
 #### **Create an SSH key pair**
 
 1. Open the Terminal on your machine.
